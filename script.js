@@ -1,8 +1,8 @@
-var plainText = "Aureliano Buendia";
+
 
 const vocals = ["a", "e", "i", "o", "u"];
 
-function TransformToXI(textX) {
+function transformToXI(textX) {
     var resultText = "";
     var rotateText = false;
     
@@ -18,7 +18,6 @@ function TransformToXI(textX) {
         if (rotateText) { //rotar el texto hasta la siguiente vocal
 
             i++;
-            console.log(textX[i]);
             rotateText = false;
             var temporalStrim = "";
             for (let j = i; j < textX.length; j++) { //localizar trozo sin texto
@@ -26,7 +25,6 @@ function TransformToXI(textX) {
                 if (vocals.includes(temporalActualchar.toLowerCase())) { break; }
                 temporalStrim += temporalActualchar;
             }
-            console.log(temporalStrim.length);
             var finalStrim = "";
             for (let j = temporalStrim.length - 1; j >= 0 ; j--) { //rotar texto
                 finalStrim += temporalStrim[j];
@@ -37,4 +35,27 @@ function TransformToXI(textX) {
     }
     return resultText;
 }
-document.getElementById("eric").innerHTML = TransformToXI(plainText);
+
+
+function transformToXII(text) {
+    let transformedText = '';
+    while (text.length > 0) {
+        transformedText += text[0]
+        text = text.slice(0, 0) + text.slice(0+1);
+        if (text.length <= 0) {break}
+        transformedText += text[text.length-1]
+        text = text.slice(0, text.length-1) + text.slice(text.length);
+    }
+    return transformedText
+}
+
+
+document.getElementById('button-transformar').addEventListener('click', () => {
+    let textTransformar = document.getElementById('text-transformar').value
+    let transformedTextXI = transformToXI(textTransformar)
+    document.getElementById('textXI').innerText = transformedTextXI;
+    let transformedTextXII = transformToXII(transformedTextXI)
+    document.getElementById('textXII').innerText = transformedTextXII;
+    console.log(transformedTextXI)
+    console.log(transformedTextXII)
+})
