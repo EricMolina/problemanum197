@@ -10,8 +10,9 @@ function deEncryptText(textX) {
     for (let i = 0; i < textX.length; i++) {
         let actualChar = textX[i];
         resultText += actualChar;
-        if (vocals.includes(actualChar.toLowerCase())) { //rotar el texto hasta la siguiente vocal
+        if (vocals.includes(actualChar.toLowerCase())) { // comprobar que sea vocal
 
+             //rotar el texto hasta la siguiente vocal
             i++;
             var temporalStrim = "";
             for (let j = i; j < textX.length; j++) { //localizar trozo sin texto
