@@ -4,15 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <h3>Eric Molina y Ricard Casals - DAW2</h3>
-    <input id="text-transformar" type="text" placeholder="Introduce el texto para transformar">
-    <button id="button-transformar">Transformar</button><br><br>
-    <b>x''->x' =></b>
-    <pre id="textXI"></pre>
-    <b>x'':</b>
-    <pre id="textXII"></pre>
+    <h3>Problema número 197</h3>
+
+    <div class="container">
+        <div class="column-2">
+            <h4>Encriptar</h4>
+            <input id="text-encriptar" type="text" placeholder="Introduce el texto">
+            <button id="button-encriptar">Encriptar</button><br><br>
+        
+            <b>x' =></b>
+            <p id="textXI-encriptado"></p><br>
+            <b>x'' =></b>
+            <p id="textXII-encriptado"></p>
+        </div>
+
+        <div class="column-2">
+            <h4>Desencriptar</h4>
+            <input id="text-desencriptar" type="text" placeholder="Introduce el texto X''">
+            <button id="button-desencriptar">Desencriptar</button><br><br>
+        
+            <b>x' =></b>
+            <p id="textXI-desencriptado">-</p><br>
+            <b>text =></b>
+            <p id="text-desencriptado"></p>
+        </div>
+    </div>
+
 </body>
 <script src="script.js"></script>
 <script src="script_rc.js"></script>

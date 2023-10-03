@@ -2,7 +2,9 @@
 
 const vocals = ["a", "e", "i", "o", "u"];
 
-function transformToXI(textX) {
+function deEncryptText(textX) {
+    // Decrypt X' to text
+    // Encrypt text to X'
     var resultText = "";
     var rotateText = false;
     
@@ -37,7 +39,8 @@ function transformToXI(textX) {
 }
 
 
-function transformToXII(text) {
+function encryptXI(text) {
+    // Encrypt X' to X'' 
     let transformedText = '';
     while (text.length > 0) {
         transformedText += text[0]
@@ -49,13 +52,39 @@ function transformToXII(text) {
     return transformedText
 }
 
+function decryptXii(text) {
+    // Decrypt X'' to X'
+    let textPrincipio = '';
+    let textFinal = '';
+    for (let index = 0; index < text.length; index++) {
+        if (index % 2 == 0) {
+            textPrincipio += text[index]
+            clock = 1
+        } else {
+            textFinal = text[index] + textFinal
+            clock = 0
+        }
+    }
+    
+    return textPrincipio + textFinal
+}
 
-document.getElementById('button-transformar').addEventListener('click', () => {
-    let textTransformar = document.getElementById('text-transformar').value
-    let transformedTextXI = transformToXI(textTransformar)
-    document.getElementById('textXI').innerText = transformedTextXI;
-    let transformedTextXII = transformToXII(transformedTextXI)
-    document.getElementById('textXII').innerText = transformedTextXII;
-    console.log(transformedTextXI)
-    console.log(transformedTextXII)
+// Desencriptar
+document.getElementById('button-desencriptar').addEventListener('click', () => {
+    let textDecrytXII = document.getElementById('text-desencriptar').value
+    let textDecrytXI = decryptXii(textDecrytXII)
+
+    document.getElementById('textXI-desencriptado').innerText = textDecrytXI;
+    let textDecrytPlain = deEncryptText(textDecrytXI)
+    document.getElementById('text-desencriptado').innerText = textDecrytPlain;
+})
+
+// Encriptar
+document.getElementById('button-encriptar').addEventListener('click', () => {
+    let textEncryptPlain = document.getElementById('text-encriptar').value
+    let textEncryptXI = deEncryptText(textEncryptPlain)
+
+    document.getElementById('textXI-encriptado').innerText = textEncryptXI;
+    let textEncryptXII = encryptXI(textEncryptXI)
+    document.getElementById('textXII-encriptado').innerText = textEncryptXII;
 })
