@@ -10,6 +10,6 @@
 
 ## DESENCRIPTAR
 ### ESQUEMA X2 A X1
-![ESQUEMA X1 A X2](Transformar_X2_a_X1.png)
+![ESQUEMA X2 A X1](Transformar_X2_a_X1.png)
 ### ESQUEMA X1 A X
-![ESQUEMA X A X1](Transformar_X_a_X1.png)
+![ESQUEMA X1 A X](Transformar_X_a_X1.png)
