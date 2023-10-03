@@ -6,21 +6,13 @@ function deEncryptText(textX) {
     // Decrypt X' to text
     // Encrypt text to X'
     var resultText = "";
-    var rotateText = false;
     
     for (let i = 0; i < textX.length; i++) {
         let actualChar = textX[i];
-        if (vocals.includes(actualChar.toLowerCase())) { //es una vocal
-            rotateText = true;
-            resultText += actualChar;
-        } else {
-            resultText += actualChar;
-        }
-
-        if (rotateText) { //rotar el texto hasta la siguiente vocal
+        resultText += actualChar;
+        if (vocals.includes(actualChar.toLowerCase())) { //rotar el texto hasta la siguiente vocal
 
             i++;
-            rotateText = false;
             var temporalStrim = "";
             for (let j = i; j < textX.length; j++) { //localizar trozo sin texto
                 let temporalActualchar = textX[j];
